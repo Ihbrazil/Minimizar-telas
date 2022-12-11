@@ -1,0 +1,35 @@
+unit UNTminimizartelasativas;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, OleAuto, ShlObj,
+  Vcl.ExtCtrls;
+
+type
+  TForm1 = class(TForm)
+    Travar: TButton;
+    Label1: TLabel;
+    procedure TravarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.TravarClick(Sender: TObject);
+var
+    Shell: OleVariant;
+begin
+    Shell := CreateOleObject ('Shell.Application');
+    Shell.MinimizeAll;
+end;
+
+end.
